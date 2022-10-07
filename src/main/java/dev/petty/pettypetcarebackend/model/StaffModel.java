@@ -10,10 +10,18 @@ import java.util.Set;
 public class StaffModel {
     @Id
     @Column(length = 255, nullable = false)
-    private String staff_id;
+    private Long staff_id;
 
     @OneToMany(mappedBy = "booking_id")
     private Set<AppointmentModel> appointment;
+
+    @OneToOne
+    @JoinColumn(name = "vet_id")
+    private VeterinaryModel veterinary;
+
+    @OneToOne
+    @JoinColumn(name = "barber_id")
+    private BarberModel barber;
 
     @Column(name = "FName", nullable = false)
     private String fname;

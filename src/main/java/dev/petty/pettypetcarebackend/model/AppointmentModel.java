@@ -11,8 +11,8 @@ public class AppointmentModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "booking_id",length = 255, nullable = false)
-    private String booking_id;
+    @Column(name = "booking_id", length = 255, nullable = false)
+    private Long booking_id;
 
     @OneToOne(mappedBy = "appointment")
     @PrimaryKeyJoinColumn
@@ -22,7 +22,6 @@ public class AppointmentModel {
     @ManyToOne
     @JoinColumn(name = "staff_id")
     private StaffModel staff;
-
 
 
     @Column(name = "Name", nullable = false)
