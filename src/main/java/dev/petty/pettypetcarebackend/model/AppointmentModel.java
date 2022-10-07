@@ -14,9 +14,9 @@ public class AppointmentModel {
     @Column(name = "booking_id", length = 255, nullable = false)
     private Long booking_id;
 
-    @OneToOne
-    @JoinColumn(name = "appointment")
-    private PetModel pet;
+//    @OneToOne
+//    @JoinColumn(name = "pet_id")
+//    private PetModel pet;
 
 
     @ManyToOne
