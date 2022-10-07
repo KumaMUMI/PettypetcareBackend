@@ -14,9 +14,11 @@ public class AppointmentModel {
     @Column(name = "booking_id", length = 255, nullable = false)
     private Long booking_id;
 
-//    @OneToOne
-//    @JoinColumn(name = "pet_id")
-//    private PetModel pet;
+
+
+    @OneToOne
+    @JoinColumn(name = "pet_id")
+    private PetModel pet;
 
 
     @ManyToOne
@@ -24,8 +26,6 @@ public class AppointmentModel {
     private StaffModel staff;
 
 
-    @Column(name = "Name", nullable = false)
-    private String name;
     @Column(name = "Type", nullable = false)
     private String type;
     @Column(name = "Date", nullable = false)

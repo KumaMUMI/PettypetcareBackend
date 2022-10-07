@@ -13,9 +13,10 @@ public class PetModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pet_id;
 
-//    @OneToOne(mappedBy = "booking_id")
-//    @PrimaryKeyJoinColumn
-//    private AppointmentModel appointment;
+    @OneToOne
+    @JoinColumn(name = "booking_id")
+    private AppointmentModel appointment;
+
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
@@ -23,9 +24,6 @@ public class PetModel {
 
     @OneToMany(mappedBy = "groom_id")
     private Set<GroommingReportModel> groommingRepor;
-
-    @OneToMany(mappedBy = "case_id")
-    private Set<CaseReportModel> caseReport;
 
     @Column(name = "Name", nullable = false)
     private String name;

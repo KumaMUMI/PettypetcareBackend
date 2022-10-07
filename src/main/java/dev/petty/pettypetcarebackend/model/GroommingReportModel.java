@@ -24,4 +24,5 @@ public class GroommingReportModel
 
     @Column(name = "Date", nullable = false)
     private Date date;
+
 }
