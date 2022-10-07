@@ -3,6 +3,7 @@ package dev.petty.pettypetcarebackend.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity(name = "GroommingReport")
@@ -21,4 +22,6 @@ public class GroommingReportModel
     @JoinColumn(name = "barber_id")
     private BarberModel barber;
 
+    @Column(name = "Date", nullable = false)
+    private Date date;
 }

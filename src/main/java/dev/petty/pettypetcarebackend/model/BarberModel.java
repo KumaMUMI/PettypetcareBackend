@@ -14,12 +14,14 @@ public class BarberModel
     @Column(length = 255, nullable = false)
     private Long barber_id;
 
-    @OneToOne(mappedBy = "veterinary")
-    @PrimaryKeyJoinColumn
+    @OneToOne
+    @JoinColumn(name = "staff_id")
     private StaffModel staff;
 
     @OneToMany(mappedBy = "groom_id")
     private Set<GroommingReportModel> groommingRepor;
+
+
 
 }
 

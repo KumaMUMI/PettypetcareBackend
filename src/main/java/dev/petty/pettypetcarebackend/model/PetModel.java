@@ -13,8 +13,8 @@ public class PetModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pet_id;
 
-    @OneToOne
-    @JoinColumn(name = "booking_id")
+    @OneToOne(mappedBy = "booking_id")
+    @PrimaryKeyJoinColumn
     private AppointmentModel appointment;
 
     @ManyToOne

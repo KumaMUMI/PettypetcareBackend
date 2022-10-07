@@ -14,8 +14,8 @@ public class AppointmentModel {
     @Column(name = "booking_id", length = 255, nullable = false)
     private Long booking_id;
 
-    @OneToOne(mappedBy = "appointment")
-    @PrimaryKeyJoinColumn
+    @OneToOne
+    @JoinColumn(name = "appointment")
     private PetModel pet;
 
 

@@ -15,12 +15,13 @@ public class StaffModel {
     @OneToMany(mappedBy = "booking_id")
     private Set<AppointmentModel> appointment;
 
-    @OneToOne
-    @JoinColumn(name = "vet_id")
+
+    @OneToOne(mappedBy = "vet_id")
+    @PrimaryKeyJoinColumn
     private VeterinaryModel veterinary;
 
-    @OneToOne
-    @JoinColumn(name = "barber_id")
+    @OneToOne(mappedBy = "barber_id")
+    @PrimaryKeyJoinColumn
     private BarberModel barber;
 
     @Column(name = "FName", nullable = false)
