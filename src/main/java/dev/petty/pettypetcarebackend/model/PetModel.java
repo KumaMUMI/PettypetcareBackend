@@ -24,6 +24,9 @@ public class PetModel {
     @OneToMany(mappedBy = "groom_id")
     private Set<GroommingReportModel> groommingRepor;
 
+    @OneToMany(mappedBy = "case_id")
+    private Set<CaseReportModel> caseReport;
+
     @Column(name = "Name", nullable = false)
     private String name;
     @Column(name = "Type", nullable = false)

@@ -3,6 +3,7 @@ package dev.petty.pettypetcarebackend.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Entity(name = "Veterinary")
@@ -15,5 +16,8 @@ public class VeterinaryModel {
     @OneToOne(mappedBy = "veterinary")
     @PrimaryKeyJoinColumn
     private StaffModel staff;
+
+    @OneToMany(mappedBy = "case_id")
+    private Set<CaseReportModel> caseReport;
 
 }
