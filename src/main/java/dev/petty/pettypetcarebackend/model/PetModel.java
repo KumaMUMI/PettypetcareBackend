@@ -1,6 +1,7 @@
 package dev.petty.pettypetcarebackend.model;
 
 import lombok.Data;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,16 +12,17 @@ public class PetModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Long pet_id;
 
-    @OneToOne
+    @OneToMany
     @JoinColumn(name = "booking_id")
-    private AppointmentModel appointment;
+    private Set<AppointmentModel> appointment;
 
 
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    private PetOwnerModels pet_owner;
+    private PetOwnerModels owner;
 
     @OneToMany(mappedBy = "groom_id")
     private Set<GroommingReportModel> groommingRepor;
@@ -35,7 +37,7 @@ public class PetModel {
     private int age;
     @Column(name = "Breeding", nullable = false)
     private String breeding;
-    @Column(name = "Note", nullable = false)
+    @Column(name = "Note")
     private String note;
 
 }

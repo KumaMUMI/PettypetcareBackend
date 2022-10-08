@@ -10,6 +10,7 @@ import java.util.Set;
 public class PetOwnerModels {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long owner_id;
 

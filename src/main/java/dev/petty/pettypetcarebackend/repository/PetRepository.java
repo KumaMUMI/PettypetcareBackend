@@ -1,9 +1,9 @@
 package dev.petty.pettypetcarebackend.repository;
 
-import dev.petty.pettypetcarebackend.model.PetOwnerModels;
+import dev.petty.pettypetcarebackend.model.PetModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PetOwnerRepository extends JpaRepository<PetOwnerModels,Long> {
+public interface PetRepository extends JpaRepository<PetModel,Long> {
 }

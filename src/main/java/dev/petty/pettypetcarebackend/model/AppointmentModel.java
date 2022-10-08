@@ -16,7 +16,7 @@ public class AppointmentModel {
 
 
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "pet_id")
     private PetModel pet;
 
