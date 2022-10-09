@@ -1,17 +1,19 @@
 package dev.petty.pettypetcarebackend.service;
 
-import dev.petty.pettypetcarebackend.model.PetOwnerModels;
+import dev.petty.pettypetcarebackend.entity.PetOwnerEntity;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface PetOwnerService {
 
-    List<PetOwnerModels> findAllOwner();
+    List<PetOwnerEntity> findAllOwners();
 
-    Optional<PetOwnerModels> findById(Long owner_id);
+    Optional<PetOwnerEntity> findOneOwnerById(Long id);
 
-    PetOwnerModels saveOwner(PetOwnerModels owner);
+    PetOwnerEntity saveOwner(PetOwnerEntity owner);
 
-    void deleteOwner(Long owner_id);
+    PetOwnerEntity updateOwner(PetOwnerEntity owner);
+
+    void daleteOwnerById(Long id);
 }
