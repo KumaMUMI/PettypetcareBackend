@@ -1,5 +1,7 @@
 package dev.petty.pettypetcarebackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -21,9 +23,11 @@ public class VeterinaryEntity {
 
     @OneToOne(targetEntity = StaffEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "staff_id_fk", referencedColumnName = "staff_id")
+    @JsonBackReference
     private StaffEntity staff;
 
-    @OneToMany(mappedBy = "veterinary", targetEntity = TakeCareEntity.class, cascade = CascadeType.ALL)
-    private List<TakeCareEntity> takeCares;
+    @OneToMany(mappedBy = "veterinary",targetEntity = AppointEntity.class, cascade = CascadeType.ALL)
+    @JsonManagedReference
+    private List<AppointEntity> appoint;
 
 }

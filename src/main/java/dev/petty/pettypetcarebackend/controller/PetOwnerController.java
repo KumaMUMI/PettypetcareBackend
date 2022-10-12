@@ -31,7 +31,7 @@ public class PetOwnerController {
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseEntity<PetOwnerEntity> postOwner(@RequestBody PetOwnerEntity petOwner) {
+    public ResponseEntity<PetOwnerEntity> postOwner(@RequestBody PetOwnerEntity petOwner) {
         return new ResponseEntity<>(this.petOwnerService.saveOwner(petOwner), HttpStatus.CREATED);
     }
 

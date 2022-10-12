@@ -1,5 +1,6 @@
 package dev.petty.pettypetcarebackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,12 +27,20 @@ public class AppointEntity {
     @Column(name = "Date", nullable = false)
     private Date date;
 
-    @ManyToOne(targetEntity = StaffEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "staff_id_fk", referencedColumnName = "staff_id")
-    private StaffEntity staff;
 
     @ManyToOne(targetEntity = PetEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "pet_id_fk", referencedColumnName = "pet_id")
+    @JsonBackReference
     private PetEntity pet;
+
+    @ManyToOne(targetEntity = BarberEntity.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "barber_id_fk", referencedColumnName = "barber_id")
+    @JsonBackReference
+    private BarberEntity barber;
+
+    @ManyToOne(targetEntity = VeterinaryEntity.class, cascade = CascadeType.ALL)
+    @JoinColumn(name = "veterinary_id_fk", referencedColumnName = "veterinary_id")
+    @JsonBackReference
+    private VeterinaryEntity veterinary;
 
 }

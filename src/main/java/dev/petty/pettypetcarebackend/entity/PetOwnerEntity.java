@@ -1,6 +1,7 @@
 package dev.petty.pettypetcarebackend.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,7 @@ public class PetOwnerEntity {
     private String email;
 
     @OneToMany(mappedBy = "petOwner", targetEntity = PetEntity.class, cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<PetEntity> pets;
 
 }
