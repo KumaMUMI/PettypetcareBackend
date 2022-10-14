@@ -23,11 +23,6 @@ public class VeterinaryEntity {
 
     @OneToOne(targetEntity = StaffEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "staff_id_fk", referencedColumnName = "staff_id")
-    @JsonBackReference
     private StaffEntity staff;
-
-    @OneToMany(mappedBy = "veterinary",targetEntity = AppointEntity.class, cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<AppointEntity> appoint;
 
 }

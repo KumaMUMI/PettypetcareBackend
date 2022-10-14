@@ -4,6 +4,7 @@ import dev.petty.pettypetcarebackend.entity.PetOwnerEntity;
 import dev.petty.pettypetcarebackend.service.PetOwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,13 +26,13 @@ public class PetOwnerController {
         return new ResponseEntity<>(this.petOwnerService.findAllOwners(), HttpStatus.OK);
     }
 
-    @GetMapping("/findOne")
-    public @ResponseBody ResponseEntity<Optional<PetOwnerEntity>> getOneOwner(@PathVariable Long id) {
-        return new ResponseEntity<>(this.petOwnerService.findOneOwnerById(id), HttpStatus.OK);
+    @GetMapping("/findOne/{owner_id}")
+    public @ResponseBody ResponseEntity<Optional<PetOwnerEntity>> getOneOwner(@PathVariable Long owner_id) {
+        return new ResponseEntity<>(this.petOwnerService.findOneOwnerById(owner_id), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public ResponseEntity<PetOwnerEntity> postOwner(@RequestBody PetOwnerEntity petOwner) {
+    public @ResponseBody ResponseEntity<PetOwnerEntity> postOwner(@RequestBody PetOwnerEntity petOwner) {
         return new ResponseEntity<>(this.petOwnerService.saveOwner(petOwner), HttpStatus.CREATED);
     }
 
@@ -40,10 +41,10 @@ public class PetOwnerController {
         return new ResponseEntity<>(this.petOwnerService.saveOwner(petOwner), HttpStatus.OK);
     }
 
-    @DeleteMapping("/dalete/{id}")
+    @DeleteMapping("/delete/{id}")
     public @ResponseBody ResponseEntity<String> deleteOwner(@PathVariable Long id) {
         this.petOwnerService.daleteOwnerById(id);
-        return new ResponseEntity<>(String.format("%d has dalete.", id), HttpStatus.OK);
+        return new ResponseEntity<>(String.format("%d has delete.", id), HttpStatus.OK);
     }
 
 

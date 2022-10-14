@@ -37,11 +37,9 @@ public class PetEntity {
 
     @ManyToOne(targetEntity = PetOwnerEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "owner_id_fk", referencedColumnName = "owner_id", nullable = false)
-    @JsonBackReference
     private PetOwnerEntity petOwner;
 
     @OneToMany(mappedBy = "pet",targetEntity = AppointEntity.class, cascade = CascadeType.ALL)
-    @JsonManagedReference
     private List<AppointEntity> appoint;
 
 }

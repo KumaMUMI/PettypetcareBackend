@@ -39,12 +39,13 @@ public class StaffEntity {
 
     @OneToOne(targetEntity = BarberEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "barber_id_fk", referencedColumnName = "barber_id")
-    @JsonManagedReference
     private BarberEntity barber;
 
     @OneToOne(targetEntity = VeterinaryEntity.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "veterinary_id_fk", referencedColumnName = "veterinary_id")
-    @JsonManagedReference
     private VeterinaryEntity veterinary;
+
+    @OneToMany(mappedBy = "staff",targetEntity = AppointEntity.class, cascade = CascadeType.ALL)
+    private List<AppointEntity> appoint;
 
 }

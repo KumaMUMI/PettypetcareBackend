@@ -8,13 +8,12 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
 @Table(name = "PetOwner")
-@ToString
 @AllArgsConstructor
 @NoArgsConstructor
 public class PetOwnerEntity {
@@ -24,7 +23,7 @@ public class PetOwnerEntity {
     private Long owner_id;
 
     @Column(name = "Fname", nullable = false)
-    private String fname;
+    private String Fname;
     @Column(name = "Lname", nullable = false)
     private String Lname;
     @Column(name = "Sex", nullable = false)
@@ -37,7 +36,6 @@ public class PetOwnerEntity {
     private String email;
 
     @OneToMany(mappedBy = "petOwner", targetEntity = PetEntity.class, cascade = CascadeType.ALL)
-    @JsonManagedReference
     private List<PetEntity> pets;
 
 }
