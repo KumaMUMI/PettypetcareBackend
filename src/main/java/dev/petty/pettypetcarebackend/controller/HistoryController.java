@@ -21,27 +21,27 @@ public class HistoryController {
     }
 
     @GetMapping("/findAll")
-    public @ResponseBody ResponseEntity<List<HistoryEntity>> getAllPet() {
+    public @ResponseBody ResponseEntity<List<HistoryEntity>> getAllHistory() {
         return new ResponseEntity<>(this.historyService.findAllHistory(), HttpStatus.OK);
     }
 
     @GetMapping("/findOne/{history_id}")
-    public @ResponseBody ResponseEntity<Optional<HistoryEntity>> getOnePet(@PathVariable Long history_id) {
+    public @ResponseBody ResponseEntity<Optional<HistoryEntity>> getOneHistory(@PathVariable Long history_id) {
         return new ResponseEntity<>(this.historyService.findOneHistoryById(history_id), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseEntity<HistoryEntity> postPet(@RequestBody HistoryEntity history) {
+    public @ResponseBody ResponseEntity<HistoryEntity> postHistory(@RequestBody HistoryEntity history) {
         return new ResponseEntity<>(this.historyService.saveHistory(history), HttpStatus.CREATED);
     }
 
     @PutMapping("/put")
-    public @ResponseBody ResponseEntity<HistoryEntity> putPet(@RequestBody HistoryEntity history ) {
+    public @ResponseBody ResponseEntity<HistoryEntity> putHistory(@RequestBody HistoryEntity history ) {
         return new ResponseEntity<>(this.historyService.updateHistory(history), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<String> deletePet(@PathVariable Long id) {
+    public @ResponseBody ResponseEntity<String> deleteHistory(@PathVariable Long id) {
         this.historyService.deleteHistoryById(id);
         return new ResponseEntity<>(String.format("%d has delete.", id), HttpStatus.OK);
     }

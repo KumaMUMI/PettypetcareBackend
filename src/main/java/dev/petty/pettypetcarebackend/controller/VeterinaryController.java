@@ -22,27 +22,27 @@ public class VeterinaryController {
     }
 
     @GetMapping("/findAll")
-    public @ResponseBody ResponseEntity<List<VeterinaryEntity>> getAllPet() {
+    public @ResponseBody ResponseEntity<List<VeterinaryEntity>> getAllVeterinary() {
         return new ResponseEntity<>(this.veterinaryService.findAllVeterinary(), HttpStatus.OK);
     }
 
     @GetMapping("/findOne/{veterinary_id}")
-    public @ResponseBody ResponseEntity<Optional<VeterinaryEntity>> getOnePet(@PathVariable Long veterinary_id) {
+    public @ResponseBody ResponseEntity<Optional<VeterinaryEntity>> getOneVeterinary(@PathVariable Long veterinary_id) {
         return new ResponseEntity<>(this.veterinaryService.findOneVeterinaryById(veterinary_id), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseEntity<VeterinaryEntity> postPet(@RequestBody VeterinaryEntity veterinary) {
+    public @ResponseBody ResponseEntity<VeterinaryEntity> postVeterinary(@RequestBody VeterinaryEntity veterinary) {
         return new ResponseEntity<>(this.veterinaryService.saveVeterinary(veterinary), HttpStatus.CREATED);
     }
 
     @PutMapping("/put")
-    public @ResponseBody ResponseEntity<VeterinaryEntity> putPet(@RequestBody VeterinaryEntity veterinary ) {
+    public @ResponseBody ResponseEntity<VeterinaryEntity> putVeterinary(@RequestBody VeterinaryEntity veterinary ) {
         return new ResponseEntity<>(this.veterinaryService.updateVeterinary(veterinary), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<String> deletePet(@PathVariable Long id) {
+    public @ResponseBody ResponseEntity<String> deleteVeterinary(@PathVariable Long id) {
         this.veterinaryService.daleteVeterinaryById(id);
         return new ResponseEntity<>(String.format("%d has delete.", id), HttpStatus.OK);
     }

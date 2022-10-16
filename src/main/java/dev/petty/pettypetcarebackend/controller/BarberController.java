@@ -23,27 +23,27 @@ public class BarberController {
     }
 
     @GetMapping("/findAll")
-    public @ResponseBody ResponseEntity<List<BarberEntity>> getAllPet() {
+    public @ResponseBody ResponseEntity<List<BarberEntity>> getAllBarber() {
         return new ResponseEntity<>(this.barberService.findAllBarber(), HttpStatus.OK);
     }
 
     @GetMapping("/findOne/{barber_id}")
-    public @ResponseBody ResponseEntity<Optional<BarberEntity>> getOnePet(@PathVariable Long barber_id) {
+    public @ResponseBody ResponseEntity<Optional<BarberEntity>> getOneBarber(@PathVariable Long barber_id) {
         return new ResponseEntity<>(this.barberService.findOneBarberById(barber_id), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseEntity<BarberEntity> postPet(@RequestBody BarberEntity barber) {
+    public @ResponseBody ResponseEntity<BarberEntity> postBarber(@RequestBody BarberEntity barber) {
         return new ResponseEntity<>(this.barberService.saveBarber(barber), HttpStatus.CREATED);
     }
 
     @PutMapping("/put")
-    public @ResponseBody ResponseEntity<BarberEntity> putPet(@RequestBody BarberEntity barber ) {
+    public @ResponseBody ResponseEntity<BarberEntity> putBarber(@RequestBody BarberEntity barber ) {
         return new ResponseEntity<>(this.barberService.updateBarber(barber), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<String> deletePet(@PathVariable Long id) {
+    public @ResponseBody ResponseEntity<String> deleteBarber(@PathVariable Long id) {
         this.barberService.deleteBarberById(id);
         return new ResponseEntity<>(String.format("%d has delete.", id), HttpStatus.OK);
     }

@@ -23,27 +23,27 @@ public class StaffController {
     }
 
     @GetMapping("/findAll")
-    public @ResponseBody ResponseEntity<List<StaffEntity>> getAllPet() {
+    public @ResponseBody ResponseEntity<List<StaffEntity>> getAllStaff() {
         return new ResponseEntity<>(this.staffService.findAllStaff(), HttpStatus.OK);
     }
 
     @GetMapping("/findOne/{staff_id}")
-    public @ResponseBody ResponseEntity<Optional<StaffEntity>> getOnePet(@PathVariable Long staff_id) {
+    public @ResponseBody ResponseEntity<Optional<StaffEntity>> getOneStaff(@PathVariable Long staff_id) {
         return new ResponseEntity<>(this.staffService.findOneStaffById(staff_id), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseEntity<StaffEntity> postPet(@RequestBody StaffEntity staff) {
+    public @ResponseBody ResponseEntity<StaffEntity> postStaff(@RequestBody StaffEntity staff) {
         return new ResponseEntity<>(this.staffService.saveStaff(staff), HttpStatus.CREATED);
     }
 
     @PutMapping("/put")
-    public @ResponseBody ResponseEntity<StaffEntity> putPet(@RequestBody StaffEntity staff ) {
+    public @ResponseBody ResponseEntity<StaffEntity> putStaff(@RequestBody StaffEntity staff ) {
         return new ResponseEntity<>(this.staffService.saveStaff(staff), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<String> deletePet(@PathVariable Long id) {
+    public @ResponseBody ResponseEntity<String> deleteStaff(@PathVariable Long id) {
         this.staffService.deleteStaffById(id);
         return new ResponseEntity<>(String.format("%d has delete.", id), HttpStatus.OK);
     }

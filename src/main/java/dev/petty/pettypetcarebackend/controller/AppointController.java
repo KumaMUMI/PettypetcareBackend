@@ -21,27 +21,27 @@ public class AppointController {
     }
 
     @GetMapping("/findAll")
-    public @ResponseBody ResponseEntity<List<AppointEntity>> getAllPet() {
+    public @ResponseBody ResponseEntity<List<AppointEntity>> getAllAppoint() {
         return new ResponseEntity<>(this.appointService.findAllAppoint(), HttpStatus.OK);
     }
 
     @GetMapping("/findOne/{appoint_id}")
-    public @ResponseBody ResponseEntity<Optional<AppointEntity>> getOnePet(@PathVariable Long appoint_id) {
+    public @ResponseBody ResponseEntity<Optional<AppointEntity>> getOneAppoint(@PathVariable Long appoint_id) {
         return new ResponseEntity<>(this.appointService.findOneAppointById(appoint_id), HttpStatus.OK);
     }
 
     @PostMapping("/post")
-    public @ResponseBody ResponseEntity<AppointEntity> postPet(@RequestBody AppointEntity appoint) {
+    public @ResponseBody ResponseEntity<AppointEntity> postAppoint(@RequestBody AppointEntity appoint) {
         return new ResponseEntity<>(this.appointService.saveAppoint(appoint), HttpStatus.CREATED);
     }
 
     @PutMapping("/put")
-    public @ResponseBody ResponseEntity<AppointEntity> putPet(@RequestBody AppointEntity appoint ) {
+    public @ResponseBody ResponseEntity<AppointEntity> putAppoint(@RequestBody AppointEntity appoint ) {
         return new ResponseEntity<>(this.appointService.updateAppoint(appoint), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")
-    public @ResponseBody ResponseEntity<String> deletePet(@PathVariable Long id) {
+    public @ResponseBody ResponseEntity<String> deleteAppoint(@PathVariable Long id) {
         this.appointService.daleteAppointById(id);
         return new ResponseEntity<>(String.format("%d has delete.", id), HttpStatus.OK);
     }
