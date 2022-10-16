@@ -19,7 +19,7 @@ import java.util.List;
 public class PetEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long pet_id;
 
     @Column(name = "Name", nullable = false)
@@ -29,17 +29,10 @@ public class PetEntity {
     @Column(name = "Sex", nullable = false)
     private String sex;
     @Column(name = "Age", nullable = false, length = 100)
-    private int age;
+    private String age;
     @Column(name = "Breeding", nullable = false)
     private String breeding;
-    @Column(name = "Note", nullable = false)
-    private String note;
-
-    @ManyToOne(targetEntity = PetOwnerEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "owner_id_fk", referencedColumnName = "owner_id", nullable = false)
-    private PetOwnerEntity petOwner;
-
-    @OneToMany(mappedBy = "pet",targetEntity = AppointEntity.class, cascade = CascadeType.ALL)
-    private List<AppointEntity> appoint;
+    @Column(name = "Weight", nullable = false)
+    private String weight;
 
 }

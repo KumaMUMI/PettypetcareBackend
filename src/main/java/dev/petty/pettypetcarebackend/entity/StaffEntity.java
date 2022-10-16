@@ -20,14 +20,15 @@ public class StaffEntity {
 
     @Id
     @GeneratedValue
-    private Long staff_id;
+    @Column(name = "Staff_id",nullable = false)
+    private Long id;
 
     @Column(name = "Fname", nullable = false)
     private String fname;
     @Column(name = "Lname", nullable = false)
     private String lname;
-    @Column(name = "Sex", nullable = false)
-    private String sex;
+    @Column(name = "gender", nullable = false)
+    private String gender;
     @Column(name = "DateOfBirth", nullable = false)
     private Date dob;
     @Column(name = "Salary", nullable = false)
@@ -37,15 +38,12 @@ public class StaffEntity {
     @Column(name = "Email", nullable = false)
     private String email;
 
-    @OneToOne(targetEntity = BarberEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "barber_id_fk", referencedColumnName = "barber_id")
-    private BarberEntity barber;
+    @OneToMany
+    @JoinColumn(name = "staff_id_fk")
+    private List<BarberEntity> barber;
 
-    @OneToOne(targetEntity = VeterinaryEntity.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "veterinary_id_fk", referencedColumnName = "veterinary_id")
-    private VeterinaryEntity veterinary;
-
-    @OneToMany(mappedBy = "staff",targetEntity = AppointEntity.class, cascade = CascadeType.ALL)
-    private List<AppointEntity> appoint;
+    @OneToMany
+    @JoinColumn(name = "staff_id_fk")
+    private List<VeterinaryEntity> veterinary;
 
 }

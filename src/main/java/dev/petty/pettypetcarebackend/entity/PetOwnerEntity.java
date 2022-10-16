@@ -10,6 +10,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -19,15 +20,15 @@ import java.util.List;
 public class PetOwnerEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long owner_id;
 
     @Column(name = "Fname", nullable = false)
-    private String Fname;
+    private String fname;
     @Column(name = "Lname", nullable = false)
-    private String Lname;
-    @Column(name = "Sex", nullable = false)
-    private String sex;
+    private String lname;
+    @Column(name = "Gender", nullable = false)
+    private String gender;
     @Column(name = "DateOfBirth", nullable = false)
     private Date dob;
     @Column(name = "tel", nullable = false, length = 10)
@@ -35,7 +36,8 @@ public class PetOwnerEntity {
     @Column(name = "Email", nullable = false)
     private String email;
 
-    @OneToMany(mappedBy = "petOwner", targetEntity = PetEntity.class, cascade = CascadeType.ALL)
+    @OneToMany
+    @JoinColumn(name = "owner_id_fk")
     private List<PetEntity> pets;
 
 }
