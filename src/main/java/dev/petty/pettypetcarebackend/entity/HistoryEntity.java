@@ -14,7 +14,7 @@ import java.sql.Date;
 @NoArgsConstructor
 public class HistoryEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "history_id", nullable = false)
     private Long id;
 
