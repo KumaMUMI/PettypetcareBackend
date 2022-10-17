@@ -16,7 +16,7 @@ import java.sql.Date;
 public class AppointEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "appoint_id", nullable = false)
     private Long id;
 
